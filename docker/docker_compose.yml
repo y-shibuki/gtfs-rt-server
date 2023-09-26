@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  mysql:
+    image: mysql:8.1.0
+    container_name: gtfs__rt_mysql_container
+    env_file:
+      - ../.env.local
+    ports:
+      - "3306:3306"
+    environment:
+      TZ: "Asia/Tokyo"
+    volumes:
+      - ../data:/var/lib/mysql:rw
+      - ./conf.d:/etc/mysql/conf.d
+    user: mysql
