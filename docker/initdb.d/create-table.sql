@@ -1,18 +1,17 @@
-create table tripupdate_db
+CREATE TABLE tripupdate_db
 (
-    id int auto_increment,
-    data json null,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    constraint tripupdate_db_pk primary key (id)
+    trip_id TEXT NOT NULL,
+    route_id TEXT NOT NULL,
+    stop_sequence INT NOT NULL,
+    stop_id TEXT NOT NULL,
+    delay INT NULL,
+    arrival_time DATETIME NOT NULL,
+    updated_at DATETIME NULL
 );
 
-create table vehicle_db
+CREATE TABLE timetable_db
 (
-    trip_id text not null,
-    route_Id text not null,
-    stop_sequence int not null,
-    stop_id text not null,
-    vehicle_id text not null,
-    status text not null,
-    updated_at datetime null,
+    trip_id TEXT NOT NULL,
+    shape_id TEXT NOT NULL,
+    tt TEXT NOT NULL
 );
