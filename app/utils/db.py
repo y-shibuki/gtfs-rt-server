@@ -50,5 +50,5 @@ def get_db_adapter() -> DBAdapter:
     MYSQL_PORT = os.environ.get("MYSQL_PORT")
 
     return DBAdapter(
-        f"mysql://{MYSQL_USER}:{MYSQL_PASSWORD}@127.0.0.1:{MYSQL_PORT}/{MYSQL_DATABASE}"
+        f"mysql+mysqlconnector://{MYSQL_USER}:{MYSQL_PASSWORD}@127.0.0.1:{MYSQL_PORT}/{MYSQL_DATABASE}"
     )
