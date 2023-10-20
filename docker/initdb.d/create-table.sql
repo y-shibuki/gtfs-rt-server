@@ -1,7 +1,6 @@
 CREATE TABLE tripupdate_db
 (
     trip_id TEXT NOT NULL,
-    route_id TEXT NOT NULL,
     stop_sequence INT NOT NULL,
     stop_id TEXT NOT NULL,
     delay INT NULL,
