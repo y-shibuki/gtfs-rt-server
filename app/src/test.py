@@ -1,3 +1,5 @@
+import json
+
 import pandas as pd
 
 from app.utils.db import get_db_adapter
@@ -10,9 +12,9 @@ with db_adapter.engine.connect() as con:
     df = pd.read_sql(
         """
         select *
-        from tripupdate_db
+        from timetable_db
         """,
         con=con
     )
-logger.info("hello")
-logger.info(df)
+df["tt"] = df["tt"].apply(json.loads)
+logger.info(df.to_dict(orient="records")[0])

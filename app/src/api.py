@@ -12,18 +12,15 @@ db_adapter = get_db_adapter()
 @app.get("/get_trip_update")
 async def get_trip_update():
     with db_adapter.engine.connect() as con:
-        dct = (
-            pd.read_sql(
-                """
+        df = pd.read_sql(
+            """
             select *
-            from vehicle_db
+            from timetable_db
             """,
-                con=con,
-            )
-            .set_index("vechile_id")
-            .to_dict(orient="index")
+            con=con
         )
-    return {"data": [dct]}
+
+    return df.to_dict(orient="records")
 
 
 @app.get("/test")
