@@ -1,5 +1,6 @@
 import datetime
 import json
+import math
 import os
 import warnings
 
@@ -81,12 +82,13 @@ if __name__ == "__main__":
             if r["stop_sequence"] == 0:
                 tt.append({"d": r["departure_time"], "s": r["stop_id"]})
             else:
+                delay = "" if math.isnan(r["delay"]) else r["delay"]
                 tt.append(
                     {
                         "a": r["arrival_time"],
                         "d": r["departure_time"],
                         "s": r["stop_id"],
-                        "delay": r["delay"],
+                        "delay": delay,
                     }
                 )
             d = r["departure_time"]
