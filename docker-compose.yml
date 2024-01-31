@@ -11,6 +11,6 @@ services:
     environment:
       TZ: "Asia/Tokyo"
     volumes:
-      - ../data:/var/lib/mysql:rw
-      - ./conf.d:/etc/mysql/conf.d
-      - ./initdb.d:/docker-entrypoint-initdb.d
+      - ./data:/var/lib/mysql:rw
+      - ./docker/conf.d:/etc/mysql/conf.d
+      - ./docker/initdb.d:/docker-entrypoint-initdb.d
