@@ -5,7 +5,7 @@ services:
     image: mysql:8.1.0
     container_name: gtfs_rt_mysql_container
     env_file:
-      - ../.env.local
+      - ./.env.local
     ports:
       - 3306:3306
     environment:
